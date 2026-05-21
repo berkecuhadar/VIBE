@@ -180,10 +180,5 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-
-./staticfiles/
-/static_root/
-/media/
 db.sqlite3
 *.sqlite3
-./static
