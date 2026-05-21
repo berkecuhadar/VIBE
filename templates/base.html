@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBE - Community Rankings & Codex</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'logo.png' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-950 text-gray-200 font-sans antialiased min-h-screen flex flex-col">
+
+    <nav class="bg-gray-900 border-b border-gray-800 p-4 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center max-w-5xl">
+            <a href="{% url 'home_page' %}"
+                class="text-2xl font-black text-white tracking-widest flex items-center gap-3 group">
+                <img src="{% static 'logo.png' %}" alt="OutlawBoxd Logo"
+                    class="w-8 h-8 group-hover:scale-110 transition-transform duration-300">
+                <span class="group-hover:text-blue-500 transition-colors uppercase">OUTLAWBOXD</span>
+            </a>
+
+            <div class="space-x-4 md:space-x-6 font-bold text-xs md:text-sm tracking-wide flex items-center">
+                <a href="{% url 'home_page' %}" class="hover:text-blue-400 transition-colors">RANKINGS</a>
+                <a href="{% url 'codex_page' %}" class="hover:text-red-400 transition-colors">CODEX</a>
+
+                <span class="text-gray-600">|</span>
+
+                {% if user.is_authenticated %}
+                <a href="{% url 'suggest_character' %}"
+                    class="text-green-400 hover:text-green-300 transition-colors">SUGGEST CHARACTER</a>
+                <a href="{% url 'suggest_codex' %}" 
+                    class="text-orange-400 hover:text-orange-300 transition-colors">SUGGEST TERM</a>
+
+                <span class="text-gray-400 ml-2">[{{ user.username }}]</span>
+                
+                <form action="{% url 'account_logout' %}" method="post" class="inline m-0 p-0">
+                    {% csrf_token %}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <button type="submit"
+                        class="text-gray-500 hover:text-red-500 transition-colors bg-transparent border-none cursor-pointer font-bold ml-2 uppercase italic tracking-widest">
+                        [ DISCONNECT ]
+                    </button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    {% if messages %}
+    <div class="container mx-auto max-w-5xl mt-4 px-4">
+        {% for message in messages %}
+        <div class="bg-blue-900/40 border border-blue-700/50 text-blue-100 px-4 py-3 rounded relative shadow-lg" role="alert">
+            <span class="block sm:inline font-medium">{{ message }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <main class="container mx-auto mt-10 px-4 mb-10 flex-grow">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-800 py-6">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="mb-4">
+                <button onclick="toggleDisclaimer()"
+                    class="group flex items-center justify-center gap-2 mx-auto text-[9px] font-black tracking-[0.2em] text-gray-600 hover:text-red-600 transition-all duration-300 uppercase italic">
+                    <span class="w-4 h-[1px] bg-gray-800 group-hover:bg-red-900 transition-colors"></span>
+                    LEGAL DISCLAIMER
+                    <span class="w-4 h-[1px] bg-gray-800 group-hover:bg-red-900 transition-colors"></span>
+                </button>
+
+                <div id="legal-panel" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0">
+                    <div class="mt-4 p-4 bg-black/40 border border-red-900/20 rounded-lg flex flex-col items-center gap-3">
+                        <p class="text-[10px] text-gray-500 leading-relaxed text-center italic font-medium max-w-2xl">
+                            All materials, analytical descriptions, and user listings featured on the OutlawBoxd platform are explicitly created for <strong>entertainment, parody, and satirical purposes</strong>. 
+                            Terminology displayed herein belongs strictly to contemporary pop-culture jargon and does not intend to infringe, defame, or insult any real-world personas, organizations, or institutions. 
+                            Any user-generated proposals are reviewed independently, and the platform provider holds no liability for user submissions. Entering this portal binds your session to this digital protocol.
+                        </p>
+                        <span class="relative flex h-1.5 w-1.5">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center gap-2">
+                <p class="text-gray-600 text-[11px] font-bold tracking-tight uppercase">
+                    <span id="current-year"></span> &copy; All Rights Reserved — by 
+                    <span class="text-red-600 italic tracking-tighter drop-shadow-[0_0_5px_rgba(220,38,38,0.4)]">
+                        BERKE
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            function toggleDisclaimer() {
+                const panel = document.getElementById('legal-panel');
+                if (panel.style.maxHeight && panel.style.maxHeight !== "0px") {
+                    panel.style.maxHeight = "0px";
+                    panel.style.opacity = "0";
+                } else {
+                    panel.style.maxHeight = "200px";
+                    panel.style.opacity = "1";
+                }
+            }
+        </script>
+    </footer>
+
+</body>
+
+</html>

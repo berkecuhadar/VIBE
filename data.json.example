@@ -1,0 +1,52 @@
+[
+  {
+    "name": "CHARACTER_ALPHA",
+    "desc": "A top-tier veteran known for dominating competitive arenas and leading tactical engagements.",
+    "pic": "https://placehold.co/300x300?text=Character+Alpha"
+  },
+  {
+    "name": "CHARACTER_BRAVO",
+    "desc": "An elite champion with exceptional strategic insight and pioneering influence in the scene.",
+    "pic": "https://placehold.co/300x300?text=Character+Bravo"
+  },
+  {
+    "name": "CHARACTER_CHARLIE",
+    "desc": "A highly charismatic specialist focused on dynamic performances and engaging community interactions.",
+    "pic": "https://placehold.co/300x300?text=Character+Charlie"
+  },
+  {
+    "name": "CHARACTER_DELTA",
+    "desc": "An absolute leader in the creative division, universally recognized for setting high quality standards.",
+    "pic": "https://placehold.co/300x300?text=Character+Delta"
+  },
+  {
+    "name": "CHARACTER_ECHO",
+    "desc": "A legendary figure in tactical combat simulators, famous for executing high-risk, high-reward maneuvers.",
+    "pic": "https://placehold.co/300x300?text=Character+Echo"
+  },
+  {
+    "name": "CHARACTER_FOXTROT",
+    "desc": "A controversial yet highly influential master tactician, central to major strategic discussions.",
+    "pic": "https://placehold.co/300x300?text=Character+Foxtrot"
+  },
+  {
+    "name": "CHARACTER_GOLF",
+    "desc": "A precise aim expert specializing in Battle Royale environments and unmatched target acquisition.",
+    "pic": "https://placehold.co/300x300?text=Character+Golf"
+  },
+  {
+    "name": "CHARACTER_HOTEL",
+    "desc": "A calm, collected storyteller capable of building deep, immersive narratives for audiences.",
+    "pic": "https://placehold.co/300x300?text=Character+Hotel"
+  },
+  {
+    "name": "CHARACTER_INDIA",
+    "desc": "A wild-card operative bringing dynamic, high-energy, and delightfully chaotic energy to every mission.",
+    "pic": "https://placehold.co/300x300?text=Character+India"
+  },
+  {
+    "name": "CHARACTER_JULIET",
+    "desc": "A creative builder and mastermind behind complex sandbox environments and unique content creations.",
+    "pic": "https://placehold.co/300x300?text=Character+Juliet"
+  }
+]

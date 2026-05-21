@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load socialaccount %}
+
+<div class="flex flex-col items-center justify-center min-h-[70vh]">
+    {% if messages %}
+    <div class="mb-6 w-80 text-center animate-bounce">
+        {% for message in messages %}
+        <div class="py-2 px-4 bg-red-950/40 border border-red-600 rounded-lg shadow-[0_0_15px_rgba(220,38,38,0.3)]">
+            <span class="text-red-500 font-black text-[10px] tracking-[0.2em] uppercase italic">
+                {{ message }}
+            </span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="relative group p-1">
+        <div class="absolute -inset-1 bg-gradient-to-r from-red-600 via-gray-950 to-[#5865F2] rounded-2xl blur-xl opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+        
+        <a href="{% provider_login_url 'discord' %}" 
+           class="relative w-72 h-72 flex flex-col items-center justify-center gap-6 bg-gray-950 border border-gray-800 group-hover:border-red-600 rounded-2xl transition-all duration-500 shadow-2xl overflow-hidden group">
+            
+            <div class="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] pointer-events-none"></div>
+
+            <div class="relative">
+                <div class="absolute -inset-4 bg-red-600/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <img src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e278299a53f5bf88615e90_Symbol.svg" 
+                     alt="Discord Icon" 
+                     class="w-20 h-20 group-hover:sepia group-hover:hue-rotate-[320deg] group-hover:brightness-150 group-hover:scale-110 transition-all duration-500 relative z-10">
+            </div>
+
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-white font-black text-2xl tracking-[0.2em] uppercase italic group-hover:text-red-500 transition-colors">
+                    INITIALIZE
+                </span>
+            </div>
+
+            <div class="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-gray-800 group-hover:border-red-600 transition-all"></div>
+            <div class="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-gray-800 group-hover:border-red-600 transition-all"></div>
+        </a>
+    </div>
+</div>
+{% endblock %}

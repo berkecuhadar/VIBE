@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto bg-gray-900 p-8 rounded-xl border border-gray-800 shadow-2xl mt-10">
+    <h2 class="text-3xl md:text-4xl font-black mb-2 text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-600 uppercase tracking-tight">
+        Codex Expansion Protocol
+    </h2>
+    <p class="text-center text-gray-400 mb-8 text-sm">
+        Enter the new terminology, acronym, or jargon along with its contextual definition. Upon administrative approval, it will be integrated into the global data repository.
+    </p>
+    
+    <form method="post" class="space-y-6">
+        {% csrf_token %}
+        
+        <div class="text-gray-200 space-y-4 data-fields-container">
+            {{ form.as_p }}
+        </div>
+        
+        <button type="submit" 
+                class="w-full bg-red-600 hover:bg-red-500 text-white font-black py-4 rounded transition-colors text-lg tracking-widest uppercase italic">
+            SUBMIT TERM
+        </button>
+    </form>
+</div>
+{% endblock %}
