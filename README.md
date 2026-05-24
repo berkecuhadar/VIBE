@@ -9,7 +9,7 @@ This project serves as a technical showcase for a clean, secure, and production-
 ready Django backend portfolio.
 
 
-🚀 KEY FEATURES
+KEY FEATURES
 --------------------------------------------------------------------------------
 - Discord OAuth2 Authentication: Secure login flow integrated via Discord API.
 - Gatekeeping System: Restricts features based on user validation hooks (e.g., 
@@ -22,7 +22,7 @@ ready Django backend portfolio.
   Tailwind CSS and interactive vanilla JavaScript components.
 
 
-💻 INSTALLATION & LOCAL SETUP
+INSTALLATION & LOCAL SETUP
 --------------------------------------------------------------------------------
 1. Clone the repository:
    git clone https://github.com/berkecuhadar/VIBE.git
@@ -53,7 +53,7 @@ ready Django backend portfolio.
    python manage.py runserver
 
 
-🔧 DISCORD OAUTH CONFIGURATION (CRITICAL STEP)
+DISCORD OAUTH CONFIGURATION (CRITICAL STEP)
 --------------------------------------------------------------------------------
 To make the Discord Login flow fully functional in your local environment, you 
 must link your Discord App credentials through the Django Admin Panel:
@@ -74,7 +74,7 @@ must link your Discord App credentials through the Django Admin Panel:
 Now, the Discord connect/disconnect flow will seamlessly work via the frontend.
 
 
-📄 DISCLAIMER
+DISCLAIMER
 --------------------------------------------------------------------------------
 All analytical descriptions, rankings, and user submissions on this platform 
 are strictly generated for entertainment, parody, and satirical purposes. This 
